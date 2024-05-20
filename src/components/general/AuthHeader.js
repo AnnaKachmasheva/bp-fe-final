@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../assets/small-logo.png';
+import logo from '.././../assets/small_logo.png';
 import styles from './AuthHeader.module.scss';
 import {useNavigate} from "react-router-dom";
 
