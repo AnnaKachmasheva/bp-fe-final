@@ -45,7 +45,6 @@ export const ModalUpdateProduct = (props) => {
         const handleSubmitForm = async (e) => {
             try {
                 const id = props.product.id;
-                console.log("id=" + id)
 
                 const product = {
                     category: {name: e.category},
@@ -61,7 +60,6 @@ export const ModalUpdateProduct = (props) => {
                 props.onClose(true)
                 window.location.reload();
             } catch (error) {
-                console.log('error - update product' + error)
             }
         }
 

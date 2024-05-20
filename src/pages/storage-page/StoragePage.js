@@ -431,21 +431,9 @@ class TableRow extends Component {
 class CardProduct extends Component {
 
     render() {
-        // const {showConfirmDeleteProduct} = this.state;
-        // const {showUpdateProduct} = this.state;
 
         return (
             <div className={styles.productCard.concat(" ").concat(this.props.product?.isDeleted ? 'deleted-item' : '')}>
-
-                {/*<ModalDeleteProductConfirm onClose={() => this.setState({showConfirmDeleteProduct: false})}*/}
-                {/*                           show={showConfirmDeleteProduct}*/}
-                {/*                           product={this.props.product}/>*/}
-
-                {/*<ModalUpdateProduct onClose={() => this.setState({showUpdateProduct: false})}*/}
-                {/*                    show={showUpdateProduct}*/}
-                {/*                    product={this.props.product}*/}
-                {/*                    categories={this.props.categories}*/}
-                {/*                    statuses={this.props.statuses}/>*/}
 
                 <img src={this.props.product?.image} alt="Image not found"/>
                 <span className={styles.category}>

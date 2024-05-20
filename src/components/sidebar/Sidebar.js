@@ -10,6 +10,7 @@ import {PageTitles} from "../../utils/Constants";
 import {IoExitOutline, IoHomeOutline} from "react-icons/io5";
 import {isAdmin, isUser} from "../../services/auth";
 import {FaListCheck} from "react-icons/fa6";
+import {RiCloseLargeFill} from "react-icons/ri";
 
 
 const Sidebar = (props) => {
@@ -92,86 +93,95 @@ const Sidebar = (props) => {
                      alt={'logo'}/>
             </div>
 
-            <div className={styles.burgerButton}>
-                <RxHamburgerMenu onClick={() => {
-                    setBurgerMenuOpen(!isBurgerMenuOpen)
-                }}
-                                 size={34}
-                                 className={styles.iconBurger}/>
-            </div>
+            {isBurgerMenuOpen ?
+                <div className={styles.burgerButton}>
+                    <RiCloseLargeFill size={34}
+                                      className={styles.iconBurger}
+                                      onClick={() => setBurgerMenuOpen(!isBurgerMenuOpen)}/>
+                </div>
+                :
+                <div className={styles.burgerButton}>
+                    <RxHamburgerMenu size={34}
+                                     className={styles.iconBurger}
+                                     onClick={() => setBurgerMenuOpen(!isBurgerMenuOpen)}/>
+                </div>
+            }
 
             {
                 isBurgerMenuOpen ? (
-                    <div className={styles.burgerMenu}>
+                        <div className={styles.burgerMenu}>
 
-                        {isUser() ?
-                            sidebarUserRows.map(({
-                                                     linkText,
-                                                     link,
-                                                     onTop
-                                                 }) => (
-                                <SidebarRow
-                                    linkText={linkText}
-                                    link={link}
-                                    onTop={onTop}
-                                    location={location.pathname}
-                                    handleClick={() => handleClickBurger()}
-                                />
-                            ))
-                            :
-                            sidebarAdminRows.map(({
-                                                      linkText,
-                                                      link,
-                                                      onTop
-                                                  }) => (
-                                <SidebarRow
-                                    linkText={linkText}
-                                    link={link}
-                                    link={link}
-                                    onTop={onTop}
-                                    location={location.pathname}
-                                    handleClick={() => handleClickBurger()}
-                                />
-                            ))
-                        };
+                            {isUser() ?
+                                sidebarUserRows.map(({
+                                                         linkText,
+                                                         link,
+                                                         onTop
+                                                     }) => (
+                                    <SidebarRow
+                                        linkText={linkText}
+                                        link={link}
+                                        key={link}
+                                        onTop={onTop}
+                                        location={location.pathname}
+                                        handleClick={() => handleClickBurger()}
+                                    />
+                                ))
+                                :
+                                sidebarAdminRows.map(({
+                                                          linkText,
+                                                          link,
+                                                          onTop
+                                                      }) => (
+                                    <SidebarRow
+                                        linkText={linkText}
+                                        key={link}
+                                        link={link}
+                                        onTop={onTop}
+                                        location={location.pathname}
+                                        handleClick={() => handleClickBurger()}
+                                    />
+                                ))
+                            };
 
 
-                    </div>
-                ) : (
-                    <div className={styles.fullSidebar}>
-                        {isUser() ?
-                            sidebarUserRows.map(({
-                                                     linkText,
-                                                     link,
-                                                     onTop
-                                                 }, index) => (
-                                <SidebarRow
-                                    key={index}
-                                    linkText={linkText}
-                                    link={link}
-                                    onTop={onTop}
-                                    location={location.pathname}
-                                    handleClick={() => handleClickBurger()}
-                                />
-                            ))
-                            :
-                            sidebarAdminRows.map(({
-                                                      linkText,
-                                                      link,
-                                                      onTop
-                                                  }, index) => (
-                                <SidebarRow
-                                    key={index}
-                                    linkText={linkText}
-                                    link={link}
-                                    onTop={onTop}
-                                    location={location.pathname}
-                                    handleClick={() => handleClickBurger()}
-                                />
-                            ))
-                        }
-                    </div>
-                )
+                        </div>
+                    )
+                    :
+                    (
+                        <div className={styles.fullSidebar}>
+                            {isUser() ?
+                                sidebarUserRows.map(({
+                                                         linkText,
+                                                         link,
+                                                         onTop
+                                                     }, index) => (
+                                    <SidebarRow
+                                        key={index}
+                                        linkText={linkText}
+                                        link={link}
+                                        onTop={onTop}
+                                        location={location.pathname}
+                                        handleClick={() => handleClickBurger()}
+                                    />
+                                ))
+                                :
+                                sidebarAdminRows.map(({
+                                                          linkText,
+                                                          link,
+                                                          onTop
+                                                      }, index) => (
+                                    <SidebarRow
+                                        key={index}
+                                        linkText={linkText}
+                                        link={link}
+                                        onTop={onTop}
+                                        location={location.pathname}
+                                        handleClick={() => handleClickBurger()}
+                                    />
+                                ))
+                            }
+                        </div>
+                    )
             }
         </div>
     )

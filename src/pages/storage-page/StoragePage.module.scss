@@ -56,6 +56,10 @@ ul {
   }
 }
 
+.card, .category {
+  color: white;
+}
+
 .cards {
 
   height: fit-content;
@@ -68,7 +72,7 @@ ul {
   }
 
   span {
-    color: #4F4F4F;
+    color: #ffffff;
   }
 
 }
@@ -159,7 +163,8 @@ ul {
 }
 
 .imageColumn {
-  width: 200px;
+  width: auto;
+  max-height: 200px;
 
   img {
     width: 100px;
@@ -204,9 +209,9 @@ ul {
   margin-right: 40px;
 }
 
-.category {
-  color: #828282;
-}
+//.category {
+//  color: #828282;
+//}
 
 .image {
 
@@ -243,8 +248,8 @@ ul {
 }
 
 .completeButtinContainer {
-  display: inline-flex;
-  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
 
   div {
     display: inline-flex;

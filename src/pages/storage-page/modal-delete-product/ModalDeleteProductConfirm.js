@@ -16,7 +16,6 @@ export const ModalDeleteProductConfirm = (props) => {
             props.onClose(true)
             window.location.reload();
         } catch (error) {
-            console.log('error - delete product')
         }
     }
 

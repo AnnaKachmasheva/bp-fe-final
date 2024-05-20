@@ -1,19 +1,64 @@
+@import '../../../././colors.scss';
+
 .container {
 
   .tableContainer {
-    margin-top: 50px;
     width: 80vw;
+    overflow: hidden;
 
     .checkbox {
-      width: 34px;
+      width: 100%;
+
+      label {margin-left: 10px}
     }
 
     .imageColumn {
       width: 100px;
+
       img {
         width: 50px;
         height: 50px;
       }
     }
   }
+}
+
+.status {
+  color: white !important;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+@media (max-width: 420px) {
+  .main {
+    grid-template-columns: 0 auto;
+
+    width: 100%;
+    margin: 0;
+  }
+}
+
+
+.category {
+  color: #828282;
+}
+
+.productCard {
+  margin: 5vw;
+  padding: 20px;
+
+  border-radius: 6px;
+  border: 1px solid $border-color;
+  box-shadow: 0 0 5px $modal-box-shadow-color;
+
+  img {
+    width: 100%;
+
+  }
+}
+
+
+
+.wrongMessage {
+  color: red;
 }

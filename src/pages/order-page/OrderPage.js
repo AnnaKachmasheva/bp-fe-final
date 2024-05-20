@@ -23,7 +23,6 @@ function OrderPage() {
 
     const navigate = useNavigate();
     const admin = isAdmin();
-    const [updatedOrder, setUpdatedOrder] = useState(null);
     const [errorFromServer, setErrorFromServer] = useState("");
     const [helpVisible, setHelpVisible] = useState(false);
     const [order, setOrder] = useState(null);
@@ -86,7 +85,6 @@ function OrderPage() {
             if (response && response.error) {
                 setErrorFromServer(response.error.message);
             } else {
-                setUpdatedOrder(response.data.content);
                 window.location.reload();
             }
 
@@ -178,7 +176,8 @@ function OrderPage() {
 
                 {(isSomeDeletedProducts && isUser()) ?
                     <span className={styles.errorMessage}>
-                    Some products have been deleted, please postpone this order.
+                    Some products have been deleted,
+                    please postpone this order.
                     It cannot be completed.
                 </span> : null}
 
@@ -355,7 +354,8 @@ class TableRow extends Component {
                 <td className={styles.imageColumn}
                     onClick={this.props.handleClick}>
                     {this.props.product?.image !== null ?
-                        <img src={this.props.product.image} alt="Image not found"/> :
+                        <img src={this.props.product.image}
+                             alt="Image not found"/> :
                         <CiImageOff className={styles.noImage}
                                     size={32}/>
                     }

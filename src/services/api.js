@@ -345,9 +345,6 @@ function getAllProductStatuses() {
 
 function createOrder(order) {
     const token = getToken().data.token;
-
-    console.log('order ' + JSON.stringify(order))
-
     return instance.post(
         API_ORDER,
         order,

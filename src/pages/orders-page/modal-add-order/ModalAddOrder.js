@@ -5,11 +5,15 @@ import Button, {ButtonSize, ButtonType} from "../../../components/button/Button"
 import ModalWindow from "../../../components/modal/ModalWindow";
 import styles from "./AddOrderPage.module.scss";
 import {CiImageOff} from "react-icons/ci";
-import {showValue} from "../../../utils/Common";
+import {formatDatetime, showStatus, showValue} from "../../../utils/Common";
+import stylesStorage from "../../storage-page/StoragePage.module.scss";
+import {RiSlideshowView} from "react-icons/ri";
+import {useNavigate} from "react-router-dom";
 
 export const ModalAddOrder = (props) => {
 
     const errorFromServerRef = useRef('');
+    const navigate = useNavigate();
 
     if (!props.show)
         return null;
@@ -46,6 +50,11 @@ export const ModalAddOrder = (props) => {
             }
         }
 
+        const handleGoToProductPage = (product) => {
+            const id = product.id;
+            navigate(`/app/product/${id}`, {state: {product: product}});
+        }
+
 
         return (
             <div className={'modal-window-body '.concat(styles.container)}>
@@ -66,27 +75,13 @@ export const ModalAddOrder = (props) => {
                                 {errorFromServerRef.current}
                             </span>
 
-                                {/*<div className={'form-group '.concat(styles.description)}>*/}
-                                {/*    <label>Description</label>*/}
-                                {/*    <Field*/}
-                                {/*        as="textarea"*/}
-                                {/*        className={'form-control '*/}
-                                {/*            + (values.description === '' && !touched.description ?*/}
-                                {/*                null :*/}
-                                {/*                (touched.description && errors.description ?*/}
-                                {/*                    'is-invalid' :*/}
-                                {/*                    'is-valid'))}*/}
-                                {/*        placeholder={'Enter description'}*/}
-                                {/*        name={'description'}*/}
-                                {/*        maxLength={255}*/}
-                                {/*    />*/}
-                                {/*</div>*/}
-                                {/*<div className={'character-count'}>*/}
-                                {/*    {values.description?.length || 0}/255*/}
-                                {/*</div>*/}
-
                                 <div className={styles.tableContainer}>
+
                                     <label>Select products</label>
+
+                                    <h5 className={styles.wrongMessage}>{products?.length === 0 ? "Not found products for creating order." : null}</h5>
+
+                                    {!props.isMobile ?
                                     <table>
                                         <thead>
                                         <tr>
@@ -116,6 +111,17 @@ export const ModalAddOrder = (props) => {
                                         )}
                                         </tbody>
                                     </table>
+                                        :
+                                        <div className={styles.cards}>
+                                            {products.map((product, index) =>
+                                                <CardProduct product={product}
+                                                             key={index}
+                                                             handleShowProduct={() => handleGoToProductPage(product)}
+                                                             handleClick={() => props.addProduct(product)}
+                                                />
+                                            )}
+                                        </div>
+                                    }
                                 </div>
 
                                 <div className={'buttons'}>
@@ -178,5 +184,57 @@ class TableRow extends Component {
                 <td>{showValue(product?.description)}</td>
             </tr>
         );
+    }
+}
+
+class CardProduct extends Component {
+
+    handleCheckboxChange = () => {
+        this.props.handleClick();
+    };
+
+    render() {
+
+        return (
+            <div className={styles.productCard.concat(" ").concat(this.props.product?.isDeleted ? 'deleted-item' : '')}>
+
+                <img src={this.props.product?.image} alt="Image not found"/>
+                <span className={styles.category}>
+                        [{showValue(this.props.product?.category?.name)}]
+                    </span>
+                <h5>{showValue(this.props.product?.name)}</h5>
+
+                <p>
+                    {this.props.product.isDeleted ?
+                        <span className={"deleted ".concat(stylesStorage.status)}>
+                            Deleted
+                        </span> :
+                        <span className={this.props.product.status.name.toLowerCase()
+                            .concat(" ")
+                            .concat(styles.status)}>
+                         {showStatus(this.props.product.status.name)}
+                        </span>
+                    }
+                </p>
+                <p>{showValue(this.props.product?.description)}</p>
+                <p>{formatDatetime(this.props.product?.updatedAt)}</p>
+
+                <p className={styles.checkbox}>
+                    <input
+                        type="checkbox"
+                        onChange={this.handleCheckboxChange}
+                    />
+                    <label>Add product to order</label>
+                </p>
+
+                <Button onClick={this.props.handleShowProduct}
+                        type={ButtonType[2].type}
+                        size={ButtonSize[1].size}
+                        isIconEnd={true}
+                        icon={<RiSlideshowView/>}
+                        label={'Show product'}/>
+
+            </div>
+        )
     }
 }

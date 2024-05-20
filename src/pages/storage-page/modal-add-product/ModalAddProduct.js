@@ -151,7 +151,7 @@ export const ModalAddProduct = (props) => {
                                 <div className={'form-group'}>
                                     <label id="image-label"
                                            for="image-file"
-                                           style={{ display: props.photos.length > 0 ? 'none' : 'block' }}>>
+                                           style={{ display: props.photos.length > 0 ? 'none' : 'block' }}>
                                         + Add photo
                                     </label>
                                     <input

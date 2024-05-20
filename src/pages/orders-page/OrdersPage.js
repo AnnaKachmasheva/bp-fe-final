@@ -23,8 +23,6 @@ function OrdersPage() {
     const [listProducts, setListProducts] = useState([]);
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [listOrders, setListOrders] = useState([]);
-
-
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const [totalElements, setTotalElements] = useState(0);
@@ -208,6 +206,7 @@ function OrdersPage() {
                            products={listProducts}
                            selectedProducts={selectedProducts}
                            addProduct={(product) => handleAddProduct(product)}
+                           isMobile={isMobile}
             />
 
             <div className={'panel'}>

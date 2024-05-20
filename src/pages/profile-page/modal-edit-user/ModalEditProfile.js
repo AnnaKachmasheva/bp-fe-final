@@ -47,7 +47,6 @@ export const ModalEditProfile = (props) => {
             window.location.reload();
 
         } catch (error) {
-            console.log('error - update user' + error)
         }
     }
 

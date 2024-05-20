@@ -44,9 +44,8 @@ function LoginPage() {
             localStorage.setItem("password", password);
         }
 
-        // send request
+        // send login request
         try {
-            // get token
             const response = await userApi.login(email, password);
 
             if (response && response.error) {
@@ -56,7 +55,6 @@ function LoginPage() {
                 window.location.reload();
             }
         } catch (error) {
-            console.log('HelloPage error:' + error)
         }
     }
 
@@ -163,21 +161,13 @@ function LoginPage() {
                                     </label>
                                 </div>
 
-                                <div className={'col float-end p-0'}>
-                                    <p className={'forgot-password text-end'}>
-                                        <Link to={'/reset-password'}>
-                                            Fogot password?
-                                        </Link>
-                                    </p>
-                                </div>
-
                             </div>
 
                             <Button type={ButtonType[2].type}
                                     isDisabled={!isValid}
                                     size={ButtonSize[1].size}
                                     typeSubmit={true}
-                                    label={'Contune'}/>
+                                    label={'Continue'}/>
 
                         </Form>
                     )}

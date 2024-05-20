@@ -14,7 +14,6 @@ export const removeToken = () => {
     localStorage.removeItem('token')
 }
 
-
 export const getUserRole = () => {
     const token = getToken();
     return token?.data?.userRole;

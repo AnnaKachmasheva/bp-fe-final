@@ -19,7 +19,6 @@ export const ModalProduct = (props) => {
             alert("Save product")
             props.onClose(true)
         } catch (error) {
-            console.log('error - save product')
         }
     }
 

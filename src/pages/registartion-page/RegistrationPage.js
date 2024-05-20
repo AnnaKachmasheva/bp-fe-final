@@ -13,6 +13,20 @@ import {GoEye, GoEyeClosed} from "react-icons/go";
 
 function RegistrationPage() {
 
+
+    const [min8Characters, setMin8Characters] = useState(false)
+    const [hasNumber, setHasNumber] = useState(false)
+    const [hasLowercaseLetter, setHasLowercaseLetter] = useState(false)
+    const [hasUppercaseLetter, setHasUppercaseLetter] = useState(false)
+    const [hasSymbol, setHasSymbol] = useState(false)
+    const [twoConditionsForPassword, setTwoConditionsForPassword] = useState(false)
+    const [fourConditionsForPassword, setFourConditionsForPassword] = useState(false)
+    const [fiveConditionsForPassword, setFiveConditionsForPassword] = useState(false)
+    const [errorFromServer, setErrorFromServer] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+
+
     const initialValues = {
         firstName: '',
         lastName: '',
@@ -31,22 +45,6 @@ function RegistrationPage() {
             .required('Repeat password is required')
             .oneOf([Yup.ref("password"), null], "Password must match")
     });
-
-
-    const [min8Characters, setMin8Characters] = useState(false)
-    const [hasNumber, setHasNumber] = useState(false)
-    const [hasLowercaseLetter, setHasLowercaseLetter] = useState(false)
-    const [hasUppercaseLetter, setHasUppercaseLetter] = useState(false)
-    const [hasSymbol, setHasSymbol] = useState(false)
-
-    const [twoConditionsForPassword, setTwoConditionsForPassword] = useState(false)
-    const [fourConditionsForPassword, setFourConditionsForPassword] = useState(false)
-    const [fiveConditionsForPassword, setFiveConditionsForPassword] = useState(false)
-
-    const [errorFromServer, setErrorFromServer] = useState('');
-
-    const [showPassword, setShowPassword] = useState(false);
-    const [showRepeatPassword, setShowRepeatPassword] = useState(false);
 
 
     const handleTogglePassword = () => {
@@ -85,7 +83,6 @@ function RegistrationPage() {
         setTwoConditionsForPassword(countConditions >= 2);
         setFourConditionsForPassword(countConditions >= 4);
         setFiveConditionsForPassword(countConditions >= 5);
-
     }
 
     const handleSubmit = async (e) => {
@@ -122,13 +119,14 @@ function RegistrationPage() {
                         window.location.reload();
                     }
                 } catch (error) {
-                    console.log('Login error: ' + error)
+                    setErrorFromServer(error);
                 }
             }
         } catch (error) {
-            console.log('Registration error: ' + error)
+            setErrorFromServer(error);
         }
     };
+
 
     if (isAuthenticated() === true) {
         return <Navigate replace to="/app/dashboard"/>;
@@ -151,7 +149,7 @@ function RegistrationPage() {
                           values,
                           errors,
                           touched,
-                          isValid, dirty
+                          isValid
                       }) => (
                         <Form className={'form'}
                               onSubmit={handleSubmit}>

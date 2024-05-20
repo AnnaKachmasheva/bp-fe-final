@@ -46,10 +46,8 @@ export const ModalEditPassword = (props) => {
             };
 
             const response = await userApi.changePassword(userId, request);
-            console.log('RESPONSE' + response)
             if (response.error) {
                 props.setErrorChangePassword(response?.error?.message);
-                console.log("response.error" + response.error.message)
             } else {
                 props.onClose(true)
                 window.location.reload();
@@ -91,14 +89,13 @@ export const ModalEditPassword = (props) => {
                                     <div className={'form-input'}>
                                         <div className={'password-label'}>
                                             <label>Old password*</label>
-                                            <button
-                                                className={'password-hidden-show'}
-                                                type="button"
-                                                onClick={handleToggleOldPassword}
-                                                style={{
-                                                    border: 'none',
-                                                    background: 'transparent'
-                                                }}>
+                                            <button className={'password-hidden-show'}
+                                                    type="button"
+                                                    onClick={handleToggleOldPassword}
+                                                    style={{
+                                                        border: 'none',
+                                                        background: 'transparent'
+                                                    }}>
                                                 {props.showOldPassword ? <GoEye size={20}/> : <GoEyeClosed size={20}/>}
                                             </button>
                                         </div>

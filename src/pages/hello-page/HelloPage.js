@@ -1,6 +1,7 @@
 import React from "react"
 import Button, {ButtonSize, ButtonType} from "../../components/button/Button";
 import {useNavigate} from "react-router-dom";
+import AuthHeader from "../../components/general/AuthHeader";
 
 
 function HelloPage() {
@@ -18,7 +19,9 @@ function HelloPage() {
 
     return (
         <div className={'main-content'}>
-            <div className={'hello-content'}>
+            <AuthHeader/>
+
+            <div className={'hello-content main-info'}>
 
                 <h1 className={'form-title '}>Welcome!</h1>
 

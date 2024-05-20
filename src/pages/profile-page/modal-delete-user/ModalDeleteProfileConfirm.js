@@ -16,7 +16,6 @@ export const ModalDeleteProfileConfirm = (props) => {
 
             removeToken();
         } catch (error) {
-            console.log('error - delete profile')
         }
     }
 

@@ -14,7 +14,6 @@ export const ModalDeleteOrderConfirm = (props) => {
             await userApi.deleteOrder(orderId);
             window.location.reload();
         } catch (error) {
-            console.log('error - delete order')
         }
     }
 
