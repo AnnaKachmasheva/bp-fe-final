@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "mail@gmail.com",
+    "phone": "123456789",
+    "userRole": "ADMIN"
+  },
+  {
+    "id": 2,
+    "firstName": "Lili",
+    "lastName": "Smith",
+    "email": "lili@gmail.com",
+    "phone": "67676767",
+    "userRole": "USER"
+  },
+  {
+    "id": 3,
+    "firstName": "Piter",
+    "lastName": "Bush",
+    "email": "pibu@gmail.com",
+    "phone": "12123423",
+    "userRole": "USER"
+  }
+]

@@ -1,0 +1,151 @@
+@import '../../././colors.scss';
+
+// common styles
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+  height: fit-content;
+
+  border-radius: 8px;
+  border: 1px solid;
+
+  .icon {
+    width: auto;
+    margin: 0 10px;
+  }
+
+  span {
+    width: 130px;
+  }
+}
+
+button:disabled {
+  cursor: default;
+}
+
+// Primary btn
+.primary {
+  background: $primary-btn-color;
+  border-color: $primary-btn-color;
+  color: $bg-color;
+}
+
+.primary:disabled, .primary:disabled:hover {
+  background: $primary-btn-color-disable;
+  border-color: $primary-btn-color-disable;
+}
+
+.primaryOutline {
+  background: $bg-color;
+  border-color: $primary-btn-color;
+  color: $primary-btn-color;
+}
+
+.primary:hover,
+.primaryOutline:hover {
+  background: $primary-btn-color-hover;
+  border-color: $primary-btn-color-hover;
+}
+
+.primary:not(:disabled):not(:disabled):active,
+.primaryOutline:not(:disabled):not(:disabled):active {
+  background: $primary-btn-color-active;
+  border-color: $primary-btn-color-active;
+}
+
+.primaryOutline:hover,
+.primaryOutline:not(:disabled):not(:disabled):active {
+  color: $bg-color;
+}
+
+// Secondary btn
+.secondary {
+  background: $secondary-btn-color-active;
+  border-color: $secondary-btn-color-active;
+  color: $bg-color;
+}
+
+.secondary:disabled {
+  background: $secondary-btn-color-disable;
+  border-color: $secondary-btn-color-disable;
+  color: $bg-color;
+}
+
+.secondaryOutline {
+  background: $bg-color;
+  border-color: $secondary-btn-color;
+  color: $secondary-btn-color;
+}
+
+.secondaryOutline:disabled {
+  border-color: $secondary-btn-color-disable;
+  color: $secondary-btn-color-disable;
+}
+
+.secondary:hover,
+.secondaryOutline:hover {
+  background: $secondary-btn-color-hover;
+  border-color: $secondary-btn-color-hover;
+}
+
+.secondary:not(:disabled):not(:disabled):active,
+.secondaryOutline:not(:disabled):not(:disabled):active {
+  background: $secondary-btn-color-active;
+  border-color: $secondary-btn-color-active;
+}
+
+// Danger btn
+.danger {
+  background: $danger-btn-color;
+  border-color: $danger-btn-color;
+  color: $bg-color;
+}
+
+.dangerOutline {
+  background: $bg-color;
+  border-color: $danger-btn-color;
+  color: $danger-btn-color;
+}
+
+.danger:hover,
+.dangerOutline:hover {
+  background: $danger-btn-color-hover;
+  border-color: $danger-btn-color-hover;
+}
+
+.danger:not(:disabled):not(:disabled):active,
+.dangerOutline:not(:disabled):not(:disabled):active {
+  background: $danger-btn-color-active;
+  border-color: $danger-btn-color-active;
+}
+
+.secondaryOutline:hover,
+.dangerOutline:hover,
+.secondaryOutline:not(:disabled):not(:disabled):active,
+.dangerOutline:not(:disabled):not(:disabled):active, {
+  color: $bg-color;
+}
+
+// sizes
+.small {
+  font-size: 14px;
+  padding: 6px 10px;
+}
+
+.default {
+  font-size: 16px;
+  padding: 8px 12px;
+}
+
+.large {
+  font-size: 18px;
+  padding: 10px 14px;
+}
+
+.smallest {
+  width: 30px;
+  height: 30px;
+}

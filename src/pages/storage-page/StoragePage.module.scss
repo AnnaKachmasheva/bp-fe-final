@@ -1,0 +1,292 @@
+@import '../../././colors.scss';
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.categories {
+
+  li {
+    border: 1px solid $green-color;
+    border-radius: 6px;
+    padding: 5px 10px;
+  }
+
+}
+
+.selectCategories {
+  z-index: 6;
+  width: 200px;
+
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  background: $bg-color;
+  padding: 10px;
+  margin-top: -20px;
+
+  border: 1px solid $border-color;
+  box-shadow: 0 0 5px $modal-box-shadow-color;
+}
+
+.selectCategoriesWrapper,
+.optionsWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0;
+
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.selectCategoriesWrapper {
+
+  gap: 20px;
+  padding-top: 20px;
+
+  button {
+    margin: 0;
+    width: 200px;
+  }
+}
+
+.cards {
+
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  p {
+    margin: 4px;
+  }
+
+  span {
+    color: #4F4F4F;
+  }
+
+}
+
+.cardButtons {
+  width: 100%;
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: start;
+
+  button {
+    height: 40px;
+  }
+
+  img {
+    background: #828282;
+    width: 90vw;
+    height: auto;
+  }
+
+}
+
+.containerCards {
+  margin: 0;
+  padding: 0;
+}
+
+.actions {
+  width: 50px;
+}
+
+.actions:hover {
+  color: $primary-btn-color;
+
+  .showActions {
+    color: black;
+  }
+}
+
+.showActions {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+
+  background: white;
+  padding: 10px;
+  margin-left: -30px;
+  border-radius: 6px;
+  border: 1px solid $grey-color;
+  box-shadow: 0 0 6px $grey-color;
+}
+
+.hiddenActions {
+  display: none;
+}
+
+.buttonContainer {
+  display: grid;
+  margin-right: 34px;
+
+  button {
+    width: 190px;
+  }
+}
+
+.sortContainer {
+  display: inline-flex;
+  align-items: center;
+
+  button {
+    margin: 0;
+  }
+
+  ul {
+    margin-top: 21px;
+    margin-left: -190px;
+    border-radius: 6px;
+    border: 1px solid $border-color;
+    box-shadow: 0 0 5px $modal-box-shadow-color;
+  }
+
+}
+
+.noImage {
+  color: grey;
+}
+
+.imageColumn {
+  width: 200px;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+.line {
+  height: 10px;
+  padding: 20px 0;
+  color: #828282;
+}
+
+.checkboxColumn {
+  width: 30px;
+}
+
+.status {
+  padding: 2px 8px;
+  border-radius: 6px;
+  color: white;
+}
+
+.productCard {
+  margin: 5vw;
+  padding: 20px;
+
+  border-radius: 6px;
+  border: 1px solid $border-color;
+  box-shadow: 0 0 5px $modal-box-shadow-color;
+
+  img {
+    width: 100%;
+
+  }
+}
+
+.newOrderContainer {
+  border-radius: 6px;
+  border: 1px solid $border-color;
+  box-shadow: 0 0 5px $modal-box-shadow-color;
+  padding: 20px;
+  margin-right: 40px;
+}
+
+.category {
+  color: #828282;
+}
+
+.image {
+
+  img {
+    height: 200px;
+    width: 200px;
+  }
+
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: 200px;
+  }
+
+}
+
+.iconHelp {
+  cursor: pointer;
+  margin-left: 10px;
+  margin-bottom: 8px;
+}
+
+.helpMessage {
+  background: white;
+  border-radius: 6px;
+  border: 1px solid $border-color;
+  box-shadow: 0 0 5px $modal-box-shadow-color;
+  width: fit-content;
+  padding: 6px;
+}
+
+.completeButtinContainer {
+  display: inline-flex;
+  align-items: flex-end;
+
+  div {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.visible {
+  display: block;
+}
+
+.notVisible {
+  display: none;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+}
+
+.errorMessage {
+  color: red;
+}
+
+p {
+  span {
+    font-weight: bolder;
+  }
+}
+
+.mainInfoOrder {
+  padding: 20px;
+}
+
+@media (max-width: 420px) {
+  .buttons {
+    gap: 20px;
+
+    button {
+      width: 90vw;
+      margin: 0 auto;
+    }
+
+  }
+}

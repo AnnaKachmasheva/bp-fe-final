@@ -1,0 +1,38 @@
+.cameraWrapper {
+  height: fit-content;
+  width: fit-content;
+
+  .cameraContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  #qrcodeRegionId {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #html5-qrcode-button-camera-stop {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+}
+
+video {
+  height: 100vh;
+  width: auto;
+}
+
+.qrReader {
+  margin-top: 90px;
+  width: 100vw;
+}

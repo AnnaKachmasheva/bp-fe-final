@@ -1,0 +1,200 @@
+@import '../../././colors.scss';
+
+.title {
+  margin-left: 20px;
+  justify-content: flex-start;
+}
+
+.tableInfo {
+  margin-left: 20px;
+  display: inline-flex;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+
+  h4 {
+    font-size: 1.1em;
+  }
+}
+
+.danger {
+  color: $danger-btn-color;
+}
+
+.card {
+  height: fit-content;
+  width: 80vw;
+  padding: 5vh 5vw;
+  margin: 2.5vw;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  border-radius: 6px;
+  border: 1px solid $grey-color;
+  box-shadow: 0 0 6px $grey-color;
+
+  p {
+    margin: 4px;
+  }
+
+  span {
+    color: #4F4F4F;
+  }
+}
+
+.cardBtns {
+  display: inline-flex;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .tableInfo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+    h4 {
+      margin: 0;
+      padding: 0;
+    }
+
+    .title {
+      display: none;
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+
+.container {
+  display: inline-flex;
+  gap: 20px;
+
+  .image {
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    background: #828282;
+  }
+
+  .category {
+    color: #828282;
+    font-size: 1.1rem;
+  }
+
+  .mainInfo {
+    border: 1px solid $grey-color;
+    box-shadow: 0 0 6px $grey-color;
+    padding: 20px;
+    border-radius: 6px;  gap: 20px;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+}
+
+.codeInfo {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  align-items: center;
+
+}
+
+.sizeQRCodeOptions {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-bottom: 20px;
+
+  .titleSelectSize {
+    margin-bottom: 4px;
+  }
+
+}
+
+.description {
+  max-width: 300px;
+}
+
+.date {
+  font-size: 0.8em;
+}
+
+.codeContainer {
+  width: fit-content;
+  padding: 20px;
+  border-radius: 6px;
+  margin-top: 10px;
+
+  .icon {
+    float: right;
+    color: #828282;
+    cursor: pointer;
+  }
+
+  .icon:hover {
+    color: #484848;
+  }
+
+  label {
+    cursor: pointer;
+
+    input {
+      display: none;
+    }
+  }
+
+  label:hover {
+    color: $green-color;
+  }
+
+  .selectedSize {
+    color: $primary-btn-color;
+  }
+
+  .buttonPrintCode {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 30px;
+
+    button {
+      width: 120px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.openShowCode {
+  border: 1px solid $grey-color;
+  box-shadow: 0 0 6px $grey-color;
+}
+
+@media (max-width: 420px) {
+
+  .wrapper, .container {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .codeContainer {
+    width: 100%;
+  }
+}

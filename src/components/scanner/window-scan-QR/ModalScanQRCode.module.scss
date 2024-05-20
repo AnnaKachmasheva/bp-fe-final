@@ -1,0 +1,85 @@
+@import '../../../././colors.scss';
+
+.scanContainer {
+  width: 100vw;
+  height: 100vh;
+
+  margin-bottom: 100px;
+
+  p {
+    font-size: 1.4em;
+
+    span {
+      color: $green-color;
+    }
+  }
+}
+
+.contentFullScreen {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: $modal-background-color;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  .icon {
+    z-index: 10000;
+    cursor: pointer;
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    color: $text-color;
+  }
+
+  .icon:hover {
+    color: $text-color;
+  }
+
+  h2, p {
+    color: $bg-color;
+    text-align: center;
+  }
+}
+
+.selectedLibrary, .resultData, .error  {
+  width: 100vw;
+  text-align: center;
+  bottom: 0;
+
+  z-index: 10000;
+  position: absolute;
+}
+
+.selectedLibrary {
+  margin-bottom: 140px;
+}
+
+.resultData {
+  margin-bottom: 80px;
+}
+
+.error {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+
+  .icon {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+section {
+  height: 100vh;
+  width: 100vw;
+  padding-top: 54px;
+
+}
