@@ -73,6 +73,7 @@ function LoginPage() {
             <AuthHeader/>
 
             <div className={'form-title'}>
+
                 <h1 className={'form-title'}>Welcome back!</h1>
                 <h5 className={'form-subtitle'}>Log in to your account.</h5>
 
@@ -172,6 +173,10 @@ function LoginPage() {
                         </Form>
                     )}
                 </Formik>
+
+                <h5>If you want to log in as an Admin:</h5>
+                <h6>email: admin@gmail.com</h6>
+                <h6>password: AdminRole1!</h6>
             </div>
 
             <div className="text-center">
