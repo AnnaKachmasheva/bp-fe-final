@@ -41,12 +41,18 @@ export const ModalAddOrder = (props) => {
                 description
             };
 
-            const response = await userApi.createOrder(order);
-            if (response && response.error && response.error.message) {
-                setErrorFromServer(response.error.message);
+            if (products.length === 0) {
+                setErrorFromServer("You cannot create a new order.")
+            } else if (productList.length === 0) {
+                setErrorFromServer("Select at least 1 product.")
             } else {
-                props.onClose(true)
-                window.location.reload();
+                const response = await userApi.createOrder(order);
+                if (response && response.error && response.error.message) {
+                    setErrorFromServer(response.error.message);
+                } else {
+                    props.onClose(true)
+                    window.location.reload();
+                }
             }
         }
 
@@ -54,7 +60,6 @@ export const ModalAddOrder = (props) => {
             const id = product.id;
             navigate(`/app/product/${id}`, {state: {product: product}});
         }
-
 
         return (
             <div className={'modal-window-body '.concat(styles.container)}>
@@ -77,40 +82,40 @@ export const ModalAddOrder = (props) => {
 
                                 <div className={styles.tableContainer}>
 
-                                    <label>Select products</label>
+                                    {products?.length > 0 ? <label>Select products</label> : null}
 
                                     <h5 className={styles.wrongMessage}>{products?.length === 0 ? "Not found products for creating order." : null}</h5>
 
                                     {!props.isMobile ?
-                                    <table>
-                                        <thead>
-                                        <tr>
-                                            <td className={styles.checkbox}>
-                                            </td>
-                                            <td className={styles.imageColumn}>
-                                                IMAGE
-                                            </td>
-                                            <td>
-                                                CATEGORY
-                                            </td>
-                                            <td>
-                                                NAME
-                                            </td>
-                                            <td>
-                                                DESCRIPTION
-                                            </td>
-                                        </tr>
-                                        </thead>
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <td className={styles.checkbox}>
+                                                </td>
+                                                <td className={styles.imageColumn}>
+                                                    IMAGE
+                                                </td>
+                                                <td>
+                                                    CATEGORY
+                                                </td>
+                                                <td>
+                                                    NAME
+                                                </td>
+                                                <td>
+                                                    DESCRIPTION
+                                                </td>
+                                            </tr>
+                                            </thead>
 
-                                        <tbody>
-                                        {products.map((prod, index) =>
-                                            <TableRow product={prod}
-                                                      key={index}
-                                                      handleClick={() => props.addProduct(prod)}
-                                            />
-                                        )}
-                                        </tbody>
-                                    </table>
+                                            <tbody>
+                                            {products.map((prod, index) =>
+                                                <TableRow product={prod}
+                                                          key={index}
+                                                          handleClick={() => props.addProduct(prod)}
+                                                />
+                                            )}
+                                            </tbody>
+                                        </table>
                                         :
                                         <div className={styles.cards}>
                                             {products.map((product, index) =>

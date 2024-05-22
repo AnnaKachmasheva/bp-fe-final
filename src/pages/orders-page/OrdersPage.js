@@ -70,8 +70,7 @@ function OrdersPage() {
             setStatuses(data.data);
             setSelectedStatuses(data.data);
         } catch (error) {
-            removeToken();
-            navigate('/app/logout');
+
         }
     };
 
@@ -86,8 +85,7 @@ function OrdersPage() {
             setTotalPages(products.data.totalPages);
             setTotalElements(products.data.totalElements);
         } catch (error) {
-            removeToken();
-            navigate('/app/logout');
+
         }
     };
 
@@ -155,8 +153,7 @@ function OrdersPage() {
             const products = await userApi.getAllInStockProducts();
             setListProducts(products.data);
         } catch (error) {
-            removeToken();
-            navigate('/app/logout');
+
         }
     };
 
@@ -434,8 +431,8 @@ class CardOrder extends Component {
                 <span>{showValue(this.props.order?.id)}</span>
                 <p>
                     <span className={this.props.order.status.name.toLowerCase()
-                        .concat(" ")
-                        .concat(styles.status)}>
+                           .concat(" ")
+                           .concat(styles.status)}>
                     {this.props.order.status.name.toLowerCase()}
                     </span>
                 </p>

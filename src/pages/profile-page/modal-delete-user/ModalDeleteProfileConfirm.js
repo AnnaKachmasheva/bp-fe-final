@@ -13,8 +13,7 @@ export const ModalDeleteProfileConfirm = (props) => {
         try {
             const userId = props.user.id;
             await userApi.deleteUser(userId);
-
-            removeToken();
+            window.location.reload();
         } catch (error) {
         }
     }

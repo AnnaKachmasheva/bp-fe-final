@@ -8,7 +8,7 @@ import {CiImageOff} from "react-icons/ci";
 import {formatDatetime, showStatus, showValue} from "../../utils/Common";
 import {FaCheck, FaPen} from "react-icons/fa";
 import {MdChecklistRtl, MdDeleteOutline, MdOutlineCancel} from "react-icons/md";
-import {RiDeleteBinLine, RiListCheck3, RiSlideshowView} from "react-icons/ri";
+import {RiDeleteBinLine, RiListCheck3} from "react-icons/ri";
 import {userApi} from "../../services/api";
 import {BsQuestionCircle} from "react-icons/bs";
 import {GiBackwardTime} from "react-icons/gi";
@@ -235,6 +235,7 @@ function OrderPage() {
                                      key={index}
                                      isProductAlreadySelected={isProductAlreadySelected(product)}
                                      handleClick={() => handleClickProduct(product)}
+                                     isStratScan={isAccept}
                         />
                     )}
                 </div>
@@ -406,21 +407,10 @@ class TableRow extends Component {
 class CardProduct extends Component {
 
     render() {
-        // const {showConfirmDeleteProduct} = this.state;
-        // const {showUpdateProduct} = this.state;
-
         return (
-            <div className={styles.productCard.concat(" ").concat(this.props.product?.isDeleted ? 'deleted-item' : '')}>
-
-                {/*<ModalDeleteProductConfirm onClose={() => this.setState({showConfirmDeleteProduct: false})}*/}
-                {/*                           show={showConfirmDeleteProduct}*/}
-                {/*                           product={this.props.product}/>*/}
-
-                {/*<ModalUpdateProduct onClose={() => this.setState({showUpdateProduct: false})}*/}
-                {/*                    show={showUpdateProduct}*/}
-                {/*                    product={this.props.product}*/}
-                {/*                    categories={this.props.categories}*/}
-                {/*                    statuses={this.props.statuses}/>*/}
+            <div className={styles.productCard.concat(" ")
+                .concat(this.props.product?.isDeleted ? 'deleted-item ' : ' ')
+                .concat(this.props.isProductAlreadySelected ? 'selected-row' : '')}>
 
                 <img src={this.props.product?.image} alt="Image not found"/>
                 <span className={styles.category}>
@@ -443,13 +433,15 @@ class CardProduct extends Component {
                 <p>{showValue(this.props.product?.description)}</p>
                 <p>{formatDatetime(this.props.product?.updatedAt)}</p>
 
-                <Button onClick={this.props.handleClick}
-                        type={ButtonType[2].type}
-                        size={ButtonSize[1].size}
-                        isIconEnd={true}
-                        icon={<RiSlideshowView/>}
-                        label={'Show product'}/>
 
+                {this.props.isProductAlreadySelected ? null :
+                    <Button onClick={this.props.handleClick}
+                            type={ButtonType[2].type}
+                            size={ButtonSize[1].size}
+                        // isIconEnd={true}
+                        // icon={<RiSlideshowView/>}
+                            label={this.props.isStratScan ? 'Scan' : 'Show product'}/>
+                }
             </div>
         )
     }

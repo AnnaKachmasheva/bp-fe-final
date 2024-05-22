@@ -53,7 +53,7 @@ const ScanPage = () => {
                 <div/>
                 :
                 <QrReader
-                    className={styles.qrReader}
+                    className={styles.qrReader.concat(" ").concat(styles.scanOnScanPage)}
                     constraints={{facingMode: 'environment'}}
                     videoStyle={{height: '100%'}}
                     onResult={(result, error) => {

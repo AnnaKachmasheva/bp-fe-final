@@ -59,8 +59,7 @@ function UsersPage() {
             setTotalElements(users.data.totalElements);
             setListUsers(users.data.content);
         } catch (error) {
-            removeToken();
-            navigate('/app/logout');
+
         }
     };
 

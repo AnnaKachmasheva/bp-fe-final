@@ -62,8 +62,7 @@ function LoginPage() {
     if (isAuthenticated() === true) {
         if (isAdmin()) {
             return <Navigate replace to="/app/dashboard"/>;
-        }
-        if (isUser()) {
+        } else {
             return <Navigate replace to="/app/orders"/>;
         }
     }
@@ -92,7 +91,7 @@ function LoginPage() {
                         <Form className={'form'}>
 
                                 <span
-                                    className={errorFromServer.length !== 0 ? 'error-span' : 'hidden-span'}>
+                                    className={errorFromServer?.length !== 0 ? 'error-span' : 'hidden-span'}>
                                     {errorFromServer}
                                 </span>
 

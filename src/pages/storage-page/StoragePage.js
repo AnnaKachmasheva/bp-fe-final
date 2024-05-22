@@ -117,11 +117,8 @@ function StoragePage() {
     }
 
     const handleSelectCategory = (category) => {
-        console.log('handleSelectCategory ' + category)
 
         const isAlreadySelected = selectedCategories.includes(category);
-
-        console.log('isAlreadySelected ' + isAlreadySelected)
 
         if (isAlreadySelected) {
             setSelectedCategories(selectedCategories.filter(cat => cat.name !== category.name));
@@ -139,12 +136,8 @@ function StoragePage() {
             const categoriesData = await userApi.getAllCategories();
             setCategories(categoriesData.data);
             setSelectedCategories(categoriesData.data);
-
-            console.log('categories ' + JSON.stringify(categoriesData.data))
-
         } catch (error) {
-            removeToken();
-            navigate('/app/logout');
+
         }
     };
 
@@ -159,8 +152,7 @@ function StoragePage() {
             setTotalPages(products.data.totalPages);
             setTotalElements(products.data.totalElements);
         } catch (error) {
-            removeToken();
-            navigate('/app/logout');
+
         }
     };
 
@@ -169,8 +161,7 @@ function StoragePage() {
             const statuses = await userApi.getAllStatuses();
             setStatuses(statuses.data);
         } catch (error) {
-            removeToken();
-            navigate('/app/logout');
+
         }
     };
 
