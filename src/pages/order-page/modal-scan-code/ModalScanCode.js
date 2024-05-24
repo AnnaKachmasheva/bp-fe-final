@@ -62,7 +62,7 @@ export const ModalScanCode = (props) => {
                                 handleScan(result?.text);
                             }
                             if (!!error) {
-                                console.info(error);
+                                // console.info(error);
                             }
                         }}
                     />

@@ -61,7 +61,6 @@ const ScanPage = () => {
                             handleScan(result?.text);
                         }
                         if (!!error) {
-                            console.info(error);
                         }
                     }}
                 />
